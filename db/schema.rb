@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_07_30_124530) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bookings", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -24,4 +27,24 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_30_124530) do
     t.check_constraint "hours_requested >= 2 AND hours_requested <= 8", name: "hours_requested_range"
   end
 
+  create_table "subtasks", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.text "description", null: false
+    t.boolean "completed", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_subtasks_on_task_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "heading", null: false
+    t.text "description"
+    t.integer "status", default: 0, null: false
+    t.datetime "deadline"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.check_constraint "status = ANY (ARRAY[0, 1, 2])", name: "tasks_status_check"
+  end
+
+  add_foreign_key "subtasks", "tasks", on_delete: :cascade
 end
