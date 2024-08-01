@@ -6,7 +6,7 @@ import { BookingData, ErrorResponse } from '../../types';
 import { initialFormData } from '../../utils/constants/form_defaults';
 import { calculatePrice } from '../../utils/helpers/priceEngine';
 import FailureModel from '../../components/FailureModel/FailureModel';
-import BookingForm from '../../components/BookingForm';
+import BookingForm from '../../components/BookingForm/BookingForm';
 
 const CreateBooking: React.FC = () => {
   const [formData, setFormData] = useState<BookingData>(initialFormData);

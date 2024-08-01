@@ -1,4 +1,4 @@
-import { BookingFormProps } from "../types";
+import { BookingFormProps } from "../../types";
 
 const BookingForm: React.FC<BookingFormProps> = ({ formData, handleSubmit, handleChange }) => {
   return (

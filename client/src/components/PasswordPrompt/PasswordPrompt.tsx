@@ -21,7 +21,7 @@ const PasswordPrompt: React.FC<PasswordPromptProps> = ({ onPasswordCorrect, clos
   return (
     <div className="password-prompt">
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className='mb-3'>
           <label htmlFor="password">Enter Password:</label>
           <input
             type="password"
@@ -32,7 +32,7 @@ const PasswordPrompt: React.FC<PasswordPromptProps> = ({ onPasswordCorrect, clos
           />
         </div>
         {error && <p className="error">{error}</p>}
-        <button type="submit">Submit</button>
+        <button type="submit" className='me-3'>Submit</button>
         <button onClick={closeModal}>Close</button>
       </form>
     </div>
