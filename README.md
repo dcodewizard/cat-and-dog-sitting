@@ -21,7 +21,7 @@ Cats: $5 per hour
 
 ## Admin Page
 
-Displays all bookings with relevant details.
+Displays all bookings with relevant details. (Password for Admin page is '12345').
 
 # Project Structure
 
