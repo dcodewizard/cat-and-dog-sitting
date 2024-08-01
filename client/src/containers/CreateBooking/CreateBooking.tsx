@@ -23,10 +23,12 @@ const CreateBooking: React.FC = () => {
   };
 
   useEffect(() => {
-    const price = calculatePrice(formData);
-    setFormData({
-      ...formData,
-      price,
+    setFormData(prevFormData => {
+      const price = calculatePrice(prevFormData);
+      return {
+        ...prevFormData,
+        price,
+      };
     });
   }, [formData.animal_type, formData.hours_requested]);
 
