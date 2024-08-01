@@ -1,8 +1,7 @@
-// BookingsList.tsx
 import { useEffect, useState } from 'react';
 import { getAllBookings } from '../../api';
 import { BookingData } from '../../types';
-import { initialFormData } from '../../utils/constants/form_defaults'
+import { initialFormData, tableHeadings } from '../../utils/constants'
 
 export default function BookingsList() {
   const [bookings, setBookings] = useState<BookingData[]>([initialFormData]);
@@ -24,13 +23,9 @@ export default function BookingsList() {
         <table className="table">
           <thead>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Animal Name</th>
-              <th>Animal Type</th>
-              <th>Hours Requested</th>
-              <th>Date of Service</th>
-              <th>Price</th>
+              {tableHeadings.map((heading, index) => (
+                <th>{heading}</th>
+              ))}
             </tr>
           </thead>
           <tbody>

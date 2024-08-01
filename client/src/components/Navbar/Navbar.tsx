@@ -7,7 +7,7 @@ import PasswordPrompt from '../PasswordPrompt/PasswordPrompt';
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [isPromptVisible, setPromptVisible] = useState(false);
+  const [isPromptVisible, setPromptVisible] = useState<boolean>(false);
 
   const isOnBookingsPage = location.pathname.includes('/bookings');
 

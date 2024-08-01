@@ -3,7 +3,7 @@ import { createBooking } from '../../api';
 import { AxiosResponse } from 'axios';
 import SuccessModel from '../../components/SuccessModel/SuccessModel';
 import { BookingData, ErrorResponse } from '../../types';
-import { initialFormData } from '../../utils/constants/form_defaults';
+import { initialFormData } from '../../utils/constants';
 import { calculatePrice } from '../../utils/helpers/priceEngine';
 import FailureModel from '../../components/FailureModel/FailureModel';
 import BookingForm from '../../components/BookingForm/BookingForm';
@@ -14,6 +14,7 @@ const CreateBooking: React.FC = () => {
   const [error, setError] = useState<ErrorResponse>({status: null, message: ''})
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+
     const { name, value } = e.target;
     setFormData({
       ...formData,

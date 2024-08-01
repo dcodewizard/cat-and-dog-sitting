@@ -1,7 +1,4 @@
-interface FormData {
-  animal_type: 0 | 1;
-  hours_requested: number;
-}
+import { FormData } from '../../types';
 
 export const calculatePrice = (formData: FormData): number => {
   const baseCharge = 20;

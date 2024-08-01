@@ -9,3 +9,5 @@ export const initialFormData: BookingData = {
   date_of_service: '',
   price: 0
 };
+
+export const tableHeadings = ['First Name', 'Last Name', 'Animal Name', 'Animal Type', 'Hours Requested', 'Date of Service', 'Price']

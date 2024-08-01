@@ -1,10 +1,5 @@
 import React from 'react';
-import { ErrorResponse } from '../../types';
-
-interface FailureModelProps {
-  closeModal: () => void;
-  error?: ErrorResponse;
-}
+import { FailureModelProps } from '../../types'; 
 
 const FailureModel: React.FC<FailureModelProps> = ({ closeModal, error }) => {
   return (

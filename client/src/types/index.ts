@@ -18,3 +18,17 @@ export interface BookingFormProps {
   handleSubmit: (e: React.FormEvent) => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+export interface FailureModelProps {
+  closeModal: () => void;
+  error?: ErrorResponse;
+}
+
+export interface SuccessModelProps {
+  closeModal: () => void;
+}
+
+export interface FormData {
+  animal_type: 0 | 1;
+  hours_requested: number;
+}

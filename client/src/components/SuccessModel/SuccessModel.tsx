@@ -1,9 +1,6 @@
 import React from 'react';
-import { ErrorResponse } from '../../types';
+import { SuccessModelProps } from '../../types';
 
-interface SuccessModelProps {
-  closeModal: () => void;
-}
 
 const SuccessModel: React.FC<SuccessModelProps> = ({ closeModal }) => {
   return (
