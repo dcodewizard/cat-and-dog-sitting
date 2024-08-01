@@ -20,3 +20,12 @@ export async function createBooking(newBooking: BookingData): Promise<AxiosRespo
   }
 }
 
+export async function getAllBookings() {
+  try {
+    const res: AxiosResponse = await axios.get('bookings');
+    return res;
+  } catch (error) {
+    console.error('There was an error fetching the bookings!', error);
+  }
+}
+
