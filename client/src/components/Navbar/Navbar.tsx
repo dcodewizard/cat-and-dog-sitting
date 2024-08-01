@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="navbar navbar-light justify-content-between nav-bg-color">
-      <a className="navbar-brand" onClick={() => navigate('/')}>
+      <a className="navbar-brand" href="/">
         <p className='ps-3 fst-italic fw-bold cursor-pointer'>Animal Daycare</p>
       </a>
       <>
