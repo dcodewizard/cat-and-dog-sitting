@@ -1,17 +1,10 @@
-# config/application.rb
-module CatAndDogSitting
-  class Application < Rails::Application
-    # Other configurations...
+# config/initializers/cors.rb
 
-    # CORS configuration
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins ENV[FRONTEND_URL]
-        resource '*',
-          headers: :any,
-          methods: [:get, :post, :patch, :put, :delete, :options, :head],
-          credentials: true
-      end
-    end
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins '*'
+    resource '*',
+      headers: :any,
+      methods: [:get, :post, :options, :head]
   end
 end
