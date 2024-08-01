@@ -11,6 +11,7 @@ import BookingForm from '../../components/BookingForm/BookingForm';
 const CreateBooking: React.FC = () => {
   const [formData, setFormData] = useState<BookingData>(initialFormData);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [disableSave, setDisableSave] = useState<boolean>(false);
   const [error, setError] = useState<ErrorResponse>({status: null, message: ''})
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -35,9 +36,15 @@ const CreateBooking: React.FC = () => {
   function isErrorResponse(response: BookingData | ErrorResponse | AxiosResponse): response is ErrorResponse {
     return (response as ErrorResponse).status !== undefined;
   }
+  function closeModal(){
+    setIsModalOpen(false)
+    setDisableSave(false)
+  }
 
   async function handleSubmit(e: React.FormEvent) {
+    setDisableSave(true)
     e.preventDefault();
+
     const res = await createBooking(formData);
     if (isErrorResponse(res)) {
       setError(res)
@@ -51,10 +58,10 @@ const CreateBooking: React.FC = () => {
 
   return (
     <>
-      <BookingForm formData={formData} handleSubmit={handleSubmit} handleChange={handleChange}/>
+      <BookingForm formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} disableSave={disableSave}/>
       {isModalOpen && (error.status !== null ? 
-                      <FailureModel closeModal={() => setIsModalOpen(false)} error={error} /> :
-                      <SuccessModel closeModal={() => setIsModalOpen(false)}/>) }
+                      <FailureModel closeModal={closeModal} error={error} /> :
+                      <SuccessModel closeModal={closeModal}/>) }
     </>
   );
 };

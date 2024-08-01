@@ -24,7 +24,7 @@ export default function BookingsList() {
           <thead>
             <tr>
               {tableHeadings.map((heading, index) => (
-                <th>{heading}</th>
+                <th key={index}>{heading}</th>
               ))}
             </tr>
           </thead>

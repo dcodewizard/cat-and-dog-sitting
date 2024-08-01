@@ -21,6 +21,7 @@ const renderComponent = (formData: BookingData) =>
       formData={formData}
       handleSubmit={mockHandleSubmit}
       handleChange={mockHandleChange}
+      disableSave
     />
   );
 

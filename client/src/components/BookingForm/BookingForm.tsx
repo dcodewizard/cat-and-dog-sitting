@@ -1,6 +1,6 @@
 import { BookingFormProps } from "../../types";
 
-const BookingForm: React.FC<BookingFormProps> = ({ formData, handleSubmit, handleChange }) => {
+const BookingForm: React.FC<BookingFormProps> = ({ formData, handleSubmit, handleChange, disableSave }) => {
   return (
       <form onSubmit={handleSubmit} className='form-style mt-5'>
         <div className='text-start lh-sm mb-3'>
@@ -111,7 +111,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ formData, handleSubmit, handl
           </div>)
         }
 
-        <button type="submit" className='save-button'>Submit</button>
+          <button type="submit" className='save-button' disabled={disableSave} >Submit</button>
       </form>
   );
 };

@@ -17,6 +17,7 @@ export interface BookingFormProps {
   formData: BookingData;
   handleSubmit: (e: React.FormEvent) => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disableSave: boolean;
 }
 
 export interface FailureModelProps {
